@@ -51,6 +51,8 @@
 ```
 pg_dump -U [username] -h [hostname] -p [port] -F c -b -v -f [backup_file] [database_name]
 ```
+Где:
+```
 -U [username]: имя пользователя базы данных
 -h [hostname]: хост, на котором запущена база данных
 -p [port]: порт, на котором работает база данных
@@ -59,6 +61,7 @@ pg_dump -U [username] -h [hostname] -p [port] -F c -b -v -f [backup_file] [datab
 -v: подробный вывод
 -f [backup_file]: файл для сохранения резервной копии
 [database_name]: имя базы данных
+```
 
 Восстановление данных
 pg_restore -U [username] -h [hostname] -p [port] -d [database_name] -v [backup_file]
