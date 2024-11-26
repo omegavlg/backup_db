@@ -85,24 +85,26 @@ pg_dump -U username -h hostname -p port -F c -b -v -f /path/to/backup_file datab
 unset PGPASSWORD
 ```
 Добавляем задание в cron:
-
+```
 crontab -e
+```
 Добавляем строку для ежедневного резервного копирования в 2:00 ночи:
 ```
 0 2 * * * /path/to/backup.sh
 ```
 
 Задание 3. MySQL
+
 3.1. Пример команды инкрементного резервного копирования базы данных MySQL
 Для инкрементного резервного копирования MySQL используется утилита mysqlbackup из MySQL Enterprise Backup.
 
 Резервирование данных
-bash
-Копировать код
+
 mysqlbackup --incremental --incremental-base=dir:/path/to/last_full_backup --backup-dir=/path/to/incremental_backup_dir backup
 --incremental: указывает на инкрементное резервное копирование
 --incremental-base=dir:/path/to/last_full_backup: указывает на базовое полное резервное копирование
 --backup-dir=/path/to/incremental_backup_dir: указывает на директорию для сохранения инкрементного резервного копирования
+
 3.1.* В каких случаях использование реплики будет давать преимущество по сравнению с обычным резервным копированием?
 Использование реплики дает следующие преимущества по сравнению с обычным резервным копированием:
 
